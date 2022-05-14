@@ -18,5 +18,6 @@ Anaconda and pip upgrade
 4. Navigate to the folder where git code is cloned (where requirements.text is there): Use cd folderpath
 5. Install dependencies: pip install -r requirements.txt
 6. Train : rasa train [If rasa module is not found then : pip install rasa]
-7. Run rasa actions in another terminal: rasa run actions
-8. Query the bot using conversation flows
+7. rasa shell
+8. Run rasa actions in another terminal: rasa run actions
+9. Query the bot using conversation flows
