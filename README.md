@@ -1,7 +1,7 @@
 # TrailBot
 Rasa Project for recommending hiking trails. 
 
-Rasa version: 3.0.0
+Rasa version: 3.1.0
 
 Get code from git in your folder
 1. git clone https://github.com/samyukta2594/TrailBot.git
