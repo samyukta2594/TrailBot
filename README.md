@@ -10,9 +10,10 @@ Anaconda and pip upgrade
 1. Install Anaconda
 2. Create virtual environment:  conda create -n yourvirtualenv python=3.8 
 3. Activate virtual enviroment: conda activate yourvirtualenv
-4. Update pip:
-   python -m pip uninstall pip
+4. Update pip: python -m pip uninstall pip
+   
    python -m ensurepip
+   
    python -m pip install -U pip
 4. Navigate to the folder where git code is cloned (where requirements.text is there): Use cd folderpath
 5. Install dependencies: pip install -r requirements.txt
