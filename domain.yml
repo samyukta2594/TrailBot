@@ -1,0 +1,167 @@
+version: '3.1'
+carry_over_slots_to_new_session: true
+intents:
+- mood_great
+- mood_unhappy
+- affirm
+- ask_trail
+- bot_challenge
+- check_weather
+- check_humidity
+- deny
+- enquire_dog_friendly
+- enquire_elevation
+- enquire_length
+- enquire_parking
+- enquire_wheelchair
+- faq_trail
+- get_random_fact
+- goodbye
+- greet
+- inform
+- more_information
+- out_of_scope
+- recommend_another
+- save
+entities:
+- difficulty
+- name
+- place
+slots:
+  name:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: name
+  place:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: place
+  difficulty:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: difficulty
+  user_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: simple_schedule_form
+        requested_slot: user_name
+  user_email:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: simple_schedule_form
+        requested_slot: user_email
+  trail_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: simple_schedule_form
+        requested_slot: trail_name
+  dog_friendly:
+    type: bool
+    mappings:
+    - type: custom
+  wheelchair:
+    type: bool
+    mappings:
+    - type: custom
+  elevation:
+    type: float
+    mappings:
+    - type: custom
+  length:
+    type: float
+    mappings:
+    - type: custom
+  parking:
+    type: float
+    mappings:
+    - type: custom
+  link:
+    type: text
+    mappings:
+    - type: custom
+forms:
+  simple_trail_form:
+    required_slots:
+    - place
+    - difficulty
+  simple_schedule_form:
+    required_slots:
+    - user_name
+    - user_email
+    - trail_name
+responses:
+  utter_greet:
+  - text: Hello! How are you doing? Welcome to TrailBot. Pick your next trail with us!
+  utter_goodbye:
+  - text: Bye. See you again!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_outofscope:
+  - text: I'm afraid I cant answer that. Please try calling customer care
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_did_that_help:
+  - text: "Did that help you?"
+  utter_happy:
+  - text: "Great, carry on!"
+  utter_sorry_msg:
+  - text: "I'm sorry you are still sad. Why dont you try a hike from our TrailBot recommendation? That might cheer you up!"
+  utter_place:
+  - text: Recommending trails on your place of choice
+  utter_faqtrail:
+  - text: We recommend trails based on the place and difficulty level. We also recommend dog and wheel-chair friendly hikes. Give it a try!"
+  utter_ask_place:
+  - text: Which place do you want to hike?
+  utter_ask_difficulty:
+  - text: What level of difficulty would you prefer?
+  utter_ask_user_name:
+  - text: Please enter your name
+  utter_ask_user_email:
+  - text: Please enter your email
+  utter_ask_trail_name:
+  - text: Please the trail Name
+  utter_ask_to_schedule:
+  - text: Do you want to set up a schedule?
+    buttons:
+    - title: Yes
+      payload: /save
+    - title: No
+      payload: /deny
+  utter_dont_schedule:
+  - text: No problem. You can schedule it later if you change your mind.
+  utter_submit:
+  - text: I will now suggest a trail for you!
+actions:
+- action_check_dog_friendly
+- action_check_elevation
+- action_check_length
+- action_check_parking
+- action_check_wheelchair
+- action_get_fact
+- action_get_weather
+- action_get_humidity
+- action_more_information
+- query_resource_type
+- query_trail_choice
+- schedule_trail_choice
+- utter_greet
+- validate_simple_schedule_form
+- validate_simple_trail_form
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

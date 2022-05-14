@@ -1,0 +1,208 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - hello, my name is [Sam](name)
+    - good morning
+    - good evening
+    - hey there
+    - hey dude
+    - good afternoon
+    - Hi, I'm [Sam](name)
+    - Hi
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you real?
+    - who is this?
+    - What are you?
+- intent: out_of_scope
+  examples: |
+    - Do you book tickets as well
+    - Can I book a ride
+    - Can I book parking
+    - Do you give a discount
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: check_weather
+  examples: |
+    - What is the weather in [Cupertino](place)
+    - Can you tell me the weather in [Milpitas](place)
+    - How is the weather is [Campbell](place)
+    - Tell me about the weather in [Cupertino](place)
+- intent: check_humidity
+  examples: |
+    - What is the humidity level in [Cupertino](place)
+    - Can you tell me the humidity condition in [Milpitas](place)
+    - How is the humidity in [Campbell](place)
+    - Tell me about the humidity in [Fremont](place)
+- intent: more_information
+  examples: |
+    - Tell me more about it
+    - Do you have more details?
+    - Can you give me more information?
+    - Give me more details
+    - I need more information about the trail
+    - Please give me more details about the hike
+- intent: enquire_dog_friendly
+  examples: |
+    - Dog friendly?
+    - Is it dog friendly?
+    - Is the trail dog friendly?
+    - Can I take my dog on the hike?
+    - Is is a dog friendly hike?
+- intent: enquire_wheelchair
+  examples: |
+    - Wheel chair friendly?
+    - Is it wheelchair friendly?
+    - Is the trail wheelchair friendly?
+    - Can I take a wheelchair on the hike?
+    - Is is a wheelchair friendly hike?
+    - How about a wheel chair?
+- intent: enquire_elevation
+  examples: |
+    - What is the elevation gain?
+    - elevation?
+    - Elvation gain?
+    - How high is the hike?
+    - Tell me the elevation gain on the trail
+- intent: enquire_parking
+  examples: |
+    - Is there a parking fee?
+    - What is the parking fee?
+    - Is parking free?
+    - Do we have to pay for parking?
+    - Can I park for free?
+- intent: enquire_length
+  examples: |
+    - Whats is the length of the loop?
+    - Length?
+    - Can you tell me the length of the trail?
+    - How long is the trail
+    - What is the distance of the trail
+    - How long is the hike?
+- intent: faq_trail
+  examples: |
+    - I want to know about different trails.
+    - What kind of trails do you recommend
+    - What's your purpose?
+    - what kind of hike do you offer
+    - what are the differnt kinds of trails
+    - What do you do?
+- intent: ask_trail
+  examples: |
+    - Can you suggest a hike?
+    - I'm looking for a trail
+    - Can you recommend me a trail
+    - I want to go hiking
+    - Help me pick a trail
+    - I want to choose a trail
+    - I'm looking for hiking trails
+    - Give me options for hiking
+    - I'm interested in hiking
+
+- intent: save
+  examples: |
+    - Can you save my choice
+    - Please schedule my trail choice
+    - Schedule my trail
+    - Save my trail
+- intent: get_random_fact
+  examples: |
+    - Tell me a random fact
+    - Give me a random fact
+    - Random Fact
+    - Tell me something random
+    - Do you know any facts
+- intent: recommend_another
+  examples: |
+    - Recommend another trail
+    - Not satisfied, suggest alternate one
+    - Suggest another
+    - Give me another trail
+    - I'm not happy. Suggest another one
+- intent: inform
+  examples: |
+    - [Moderate](difficulty)
+    - [Easy](difficulty)
+    - [Hard](difficulty)
+    - [Cupertino](place)
+    - [Campbell](place)
+    - [Milpitas](place)
+
+- lookup: place
+  examples: |
+    - Cupertino
+    - Campbell
+    - Sunnyvale
+    - Milpitas
+    - Saratoga
+    - Fremont

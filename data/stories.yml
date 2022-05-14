@@ -1,0 +1,221 @@
+version: "3.1"
+
+stories:
+
+
+- story: Interactive story 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_trail
+  - action: utter_faqtrail
+  - intent: ask_trail
+  - action: simple_trail_form
+  - active_loop: simple_trail_form
+  - slot_was_set:
+    - requested_slot: place
+  - slot_was_set:
+    - place: Cupertino
+  - slot_was_set:
+    - requested_slot: difficulty
+  - slot_was_set:
+    - difficulty: Moderate
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: query_trail_choice
+  - action: utter_ask_to_schedule
+  - intent: deny
+  - action: utter_dont_schedule
+  # - intent : recommend_another
+  # - action: query_trail_choice
+  # - action: utter_ask_to_schedule
+
+- story: Interactive story 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_trail
+  - action: utter_faqtrail
+  - intent: ask_trail
+  - action: simple_trail_form
+  - active_loop: simple_trail_form
+  - slot_was_set:
+    - requested_slot: place
+  - slot_was_set:
+    - place: Campbell
+  - slot_was_set:
+    - requested_slot: difficulty
+  - slot_was_set:
+    - difficulty: Easy
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: query_trail_choice
+  - action: utter_ask_to_schedule
+  - intent: deny
+  - action: utter_dont_schedule
+  # - intent : recommend_another
+  # - action: query_trail_choice
+  # - action: utter_ask_to_schedule
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_sorry_msg
+
+
+
+# - story: User wants to ask more information 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: ask_trail
+#   - action: simple_trail_form
+#   - active_loop: simple_trail_form
+#   - slot_was_set:
+#     - requested_slot: place
+#   - slot_was_set:
+#     - place: Cupertino
+#   - slot_was_set:
+#     - requested_slot: difficulty
+#   - slot_was_set:
+#     - difficulty: Moderate
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_submit
+#   - action: query_trail_choice
+#   - action: utter_ask_to_schedule
+#   - intent: deny
+#   - action: utter_dont_schedule
+#   - intent: more_information
+#   - action: action_more_information
+
+# - story: User wants to ask more information 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: ask_trail
+#   - action: simple_trail_form
+#   - active_loop: simple_trail_form
+#   - slot_was_set:
+#     - requested_slot: place
+#   - slot_was_set:
+#     - place: Cupertino
+#   - slot_was_set:
+#     - requested_slot: difficulty
+#   - slot_was_set:
+#     - difficulty: Moderate
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_submit
+#   - action: query_trail_choice
+#   - action: utter_ask_to_schedule
+#   - intent: deny
+#   - action: utter_dont_schedule
+#   - intent: check_weather
+#   - action: action_get_weather
+#   - intent: more_information
+#   - action: action_more_information
+
+# - story: User wants to ask more information 3
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: ask_trail
+#   - action: simple_trail_form
+#   - active_loop: simple_trail_form
+#   - slot_was_set:
+#     - requested_slot: place
+#   - slot_was_set:
+#     - place: Cupertino
+#   - slot_was_set:
+#     - requested_slot: difficulty
+#   - slot_was_set:
+#     - difficulty: Moderate
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_submit
+#   - action: query_trail_choice
+#   - slot_was_set:
+#     - trail_name: Stevens Canyon Trail
+#   - action: utter_ask_to_schedule
+#   - intent: affirm
+#   - action: simple_schedule_form
+#   - active_loop: simple_schedule_form
+#   - slot_was_set:
+#     - requested_slot: user_name
+#   - slot_was_set:
+#     - user_name: Samyukta
+#   - slot_was_set:
+#     - requested_slot: user_email
+#   - slot_was_set:
+#     - user_email: samyukta25@gmail.com
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: schedule_trail_choice
+#   - intent: more_information
+#   - action: action_more_information
+
+# - story : User doesnt want to continue form
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: ask_trail
+#   - action: simple_trail_form
+#   - active_loop : simple_trail_form
+#   - intent: stop
+#   - action: utter_ask_continue
+#   - or:
+#     intent: stop
+#     intent: affirm
+#   - action: action_deactivate_loop
+#     active_loop: null
+
+# - story: interactive_story_1 with inturuptions
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: ask_trail
+#   - action: simple_trail_form
+#   - active_loop: simple_trail_form
+#   - slot_was_set:
+#     - requested_slot: place
+#   - intent: stop
+#   - action: utter_ask_continue
+#   - intent: stop
+#   - action: action_deactivate_loop
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - intent: goodbye
+#   - action: utter_goodbye
+

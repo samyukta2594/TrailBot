@@ -1,0 +1,114 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Respond to out of scope questions
+  steps:
+  - intent: out_of_scope
+  - action: utter_outofscope
+
+- rule: Recommend another trail
+  steps:
+  - intent: recommend_another
+  - action: query_trail_choice
+
+- rule: Get weather information
+  steps:
+  - intent: check_weather
+  - action: action_get_weather
+
+- rule: Get humidity information
+  steps:
+  - intent: check_humidity
+  - action: action_get_humidity
+
+- rule: Get random facts
+  steps:
+  - intent: get_random_fact
+  - action: action_get_fact
+
+- rule: Get more information
+  steps:
+  - intent: more_information
+  - action: action_more_information
+
+- rule : Check if trail is dog friendly
+  steps:
+    - intent: enquire_dog_friendly
+    - action: action_check_dog_friendly
+
+- rule : Enquire elevation gain 
+  steps:
+    - intent: enquire_elevation
+    - action: action_check_elevation
+
+- rule : Enquire if trail is wheelchair friendly
+  steps:
+    - intent: enquire_wheelchair
+    - action: action_check_wheelchair
+
+- rule : Enquire trail parking fee
+  steps:
+    - intent: enquire_parking
+    - action: action_check_parking
+
+- rule : Enquire length of the loop
+  steps:
+    - intent: enquire_length
+    - action: action_check_length
+
+- rule: Respond to faq on trails 
+  steps:
+  - intent: faq_trail
+  - action: utter_faqtrail
+
+- rule: Activate trail form
+  steps:
+   - intent: ask_trail
+   - action: simple_trail_form
+   - active_loop : simple_trail_form
+
+- rule: Submit Trail Form
+  condition:
+  - active_loop: simple_trail_form  
+  steps:
+  - action: simple_trail_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  # - action: utter_trail_slots
+  - action: query_trail_choice
+  - action: utter_ask_to_schedule
+
+- rule: Activate schedule form
+  steps:
+   - intent: save 
+   - action: simple_schedule_form
+   - active_loop : simple_schedule_form
+
+- rule: Submit Schedule Form
+  condition:
+  - active_loop: simple_schedule_form  
+  steps:
+  - action: simple_schedule_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: schedule_trail_choice
+
+
+
+
+
+
